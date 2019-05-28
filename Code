@@ -1,0 +1,160 @@
+import RPi.GPIO as gpio
+import time
+#import picamera
+import sys
+import termios
+import tty
+
+gpio.setmode(gpio.BOARD)
+gpio.setup(8,gpio.OUT)
+gpio.setup(10,gpio.OUT)
+#p=gpio.PWM(10,50)
+#p.start(7.5)
+#q=gpio.PWM(8,50)
+#q.start(7.5)
+
+def getch():
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    try:
+        tty.setraw(fd)
+        ch = sys.stdin.read(1)
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    return ch
+
+def gpioInit():
+    gpio.setmode(gpio.BOARD)
+    #camera = picamera.PiCamera()
+    gpio.setup(7,gpio.OUT)
+    gpio.setup(19,gpio.OUT)
+    gpio.setup(13,gpio.OUT)
+    gpio.setup(15,gpio.OUT)
+
+def pwmUpperStart(dutyCycle):
+    pwmInit()
+    duty=dutyCycle
+    q.ChangeDutyCycle(duty)
+
+def pwmLowerStart(dutyCycle):
+    pwmInit()
+    duty=dutyCycle
+    p.ChangeDutyCycle(duty)
+
+def pwmInit():
+    gpio.setmode(gpio.BOARD)
+    gpio.setup(8,gpio.OUT)
+    gpio.setup(10,gpio.OUT)
+
+def reset():
+    time.sleep(.01)
+
+def stop():
+    gpioInit()
+    gpio.output(7,0)
+    gpio.output(19,0)
+    gpio.output(13,0)
+    gpio.output(15,0)
+    print("stop")
+
+def forward():
+    gpioInit()
+    gpio.output(7,1)
+    gpio.output(19,0)
+    gpio.output(13,1)
+    gpio.output(15,0)
+    print("forward")
+    time.sleep(0.1)
+    stop()
+
+def backward():
+    gpioInit()
+    gpio.output(7,0)
+    gpio.output(19,1)
+    gpio.output(13,0)
+    gpio.output(15,1)
+    print("backward")
+    time.sleep(0.1)
+    stop()
+
+def right():
+    gpioInit()
+    gpio.output(7,0)
+    gpio.output(19,1)
+    gpio.output(13,0)
+    gpio.output(15,0)
+    print("right")
+    time.sleep(0.1)
+    stop()
+
+def left():
+    gpioInit()
+    gpio.output(7,0)
+    gpio.output(19,0)
+    gpio.output(13,0)
+    gpio.output(15,1)
+    print("left")
+    time.sleep(0.1)
+    stop()
+
+def lowerServoMiddle():
+    pwmLowerStart(7.5)
+    print("lowerServoMiddle")
+
+def lowerServoLeft():
+    pwmLowerStart(12.5)
+    print("lowerServoLeft")
+
+def lowerServoRight():
+    pwmLowerStart(2.5)
+    print("lowerServoRight")
+
+def upperServoMiddle():
+    pwmUpperStart(7.5)
+    print("upperServoMiddle")
+
+def upperServoLeft():
+    pwmUpperStart(12.5)
+    print("upperServoLeft")
+
+def upperServoRight():
+    pwmUpperStart(2.5)
+    print("upperServoRight")
+
+bol=True;
+try:
+    stop()
+    while bol:
+        direct=getch()
+
+        if direct=='w':
+            forward()
+        elif direct=='s':
+            backward()
+        elif direct=='a':
+            left()
+        elif direct=='d':
+            right()
+        elif direct=='i':
+            upperServoLeft()
+        elif direct=='o':
+            upperServoMiddle()
+        elif direct=='p':
+            upperServoRight()
+        elif direct=='j':
+            lowerServoLeft()
+        elif direct=='k':
+            lowerServoMiddle()
+        elif direct=='l':
+            lowerServoRight()
+        elif direct=='c':
+          camera.capture('group1.jpg')
+        elif direct=='b':
+            gpio.cleanup()
+            bol=False
+        elif direct=='v':
+            camera.start_preview()
+            sleep(15)
+            camera.stop_preview()
+except KeyboardInterrupt:
+    gpio.cleanup()
