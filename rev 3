@@ -1,0 +1,92 @@
+	
+# FUNCTION      :	lowerServoMiddle
+# DESCRIPTION   :	The lower middle servo motor work begins
+# PARAMETERS    :	Integer type value that provide  servo for some moment to particular angle
+# RETURNS       :	Nothing
+
+def lowerServoMiddle():
+    pwmLowerStart(7.5)
+    print("lowerServoMiddle")
+
+# FUNCTION      :	lowerServoLeft
+# DESCRIPTION   :	The lower left servo motor work begins
+# PARAMETERS    :	Integer type value that provide servo some moment to particular angle
+# RETURNS       :	Nothing	
+	
+def lowerServoLeft():
+    pwmLowerStart(12.5)
+    print("lowerServoLeft")
+
+# FUNCTION      :	lowerServoRight
+# DESCRIPTION   :	The lower right servo motor work begins
+# PARAMETERS    :	Integer type value that provide servo some moment to particular angle
+# RETURNS       :	Nothing	
+	
+def lowerServoRight():
+    pwmLowerStart(2.5)
+    print("lowerServoRight")
+
+# FUNCTION      :	upperServoMiddle
+# DESCRIPTION   :	The upper middle servo motor work begins
+# PARAMETERS    :	Integer type value that provide servo some moment to particular angle
+# RETURNS       :	Nothing	
+	
+def upperServoMiddle():
+    pwmUpperStart(7.5)
+    print("upperServoMiddle")
+
+# FUNCTION      :	upperServoLeft
+# DESCRIPTION   :	The upper left servo motor work begins
+# PARAMETERS    :	Integer type value that provide servo some moment to particular angle
+# RETURNS       :	Nothing	
+	
+def upperServoLeft():
+    pwmUpperStart(12.5)
+    print("upperServoLeft")
+
+# FUNCTION      :	upperServoRight
+# DESCRIPTION   :	The upper right servo motor work begins
+# PARAMETERS    :	Integer type value that provide servo some moment to particular angle
+# RETURNS       :	Nothing	
+	
+def upperServoRight():
+    pwmUpperStart(2.5)
+    print("upperServoRight")
+
+bol=True;      #if condition is true proceed
+try:		   # To handle the exceptions
+    stop()
+    while bol:
+        direct=getch()		#getting the commands from the ASCI keyboard
+
+        if direct=='w':		#getting the forward commands from the ASCI keyboard word 'w'
+            forward()
+        elif direct=='s':	#getting the backward commands from the ASCI keyboard word 's'
+            backward()
+        elif direct=='a':	#getting the left commands from the ASCI keyboard word 'a'
+            left()
+        elif direct=='d':	#getting the right commands from the ASCI keyboard word 'd'
+            right()
+        elif direct=='i':	#getting the upper left commands from the ASCI keyboard word 'i' for the servo motor 
+            upperServoLeft()
+        elif direct=='o':	#getting the upper middle commands from the ASCI keyboard word 'o' for the servo motor
+            upperServoMiddle()
+        elif direct=='p':	#getting the upper right commands from the ASCI keyboard word 'p' for the servo motor
+            upperServoRight()
+        elif direct=='j':	#getting the lower left commands from the ASCI keyboard word 'j' for the servo motor
+            lowerServoLeft()
+        elif direct=='k':	#getting the lower middle commands from the ASCI keyboard word 'k' for the servo motor
+            lowerServoMiddle()
+        elif direct=='l':	#getting the lower right commands from the ASCI keyboard word 'l' for the servo motor
+            lowerServoRight()
+        elif direct=='c':	#getting the capture mode commands from the ASCI keyboard word 'c' 
+          camera.capture('group1.jpg')
+        elif direct=='b':	#getting the reset commands from the ASCI keyboard word 'b' 
+            gpio.cleanup()
+            bol=False
+        elif direct=='v':	#getting the camera preview commands from the ASCI keyboard word 'v' 
+            camera.start_preview()	#start the preview of the camera
+            sleep(15)
+            camera.stop_preview()	#stop the preview of the camera
+except KeyboardInterrupt:			#if any other ASCI character press it interrupts the command
+    gpio.cleanup()
