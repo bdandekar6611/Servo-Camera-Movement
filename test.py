@@ -7,7 +7,7 @@
   
 import RPi.GPIO as gpio
 import time
-##import picamera
+import picamera
 import sys
 import termios
 import tty
@@ -38,7 +38,7 @@ def getch():
 	
 def gpioInit():
     gpio.setmode(gpio.BOARD)
-##    camera = picamera.PiCamera()
+    camera = picamera.PiCamera()
     gpio.setup(7,gpio.OUT)
     gpio.setup(19,gpio.OUT)
     gpio.setup(13,gpio.OUT)
