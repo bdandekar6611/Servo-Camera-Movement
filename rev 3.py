@@ -7,7 +7,7 @@
   
 import RPi.GPIO as gpio
 import time
-import picamera
+##import picamera
 import sys
 import termios
 import tty
