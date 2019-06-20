@@ -244,11 +244,11 @@ try:		   # To handle the exceptions
             bol=False
         elif direct=='v':	#getting the camera preview commands from the ASCI keyboard word 'v'
             camera.start_preview()	#start the preview of the camera
-            camera.start_recording('/home/pi/Desktop/group1.h264')
-            time.sleep(15)
-            camera.stop_recording()
+            camera.start_recording('/home/pi/Desktop/group1.h264') # starts the vedio recording and save the file .h264 named as group1 on desktop
+            time.sleep(15)		#time set for the vedio recording 15 seconds
+            camera.stop_recording()	# stop the vedio recording
             camera.stop_preview()	#stop the preview of the camera
-except KeyboardInterrupt:			#if any other ASCI character press it interrupts the command
+except KeyboardInterrupt:		#if any other ASCI character press it interrupts the command
     gpio.cleanup()
 
 
