@@ -12,14 +12,14 @@ import sys
 import termios
 import tty
 
-gpio.setmode(gpio.BOARD) #Enable the all gpio pins
-gpio.setwarnings(False) # Clear gpio pins
-gpio.setup(12,gpio.OUT)	 # setup particular pin for PWM
-gpio.setup(10,gpio.OUT)	# setup particular pin for PWM
+gpio.setmode(gpio.BOARD) 	#Enable the all gpio pins
+gpio.setwarnings(False) 	# Clear gpio pins
+gpio.setup(12,gpio.OUT)	 	# setup particular pin for PWM
+gpio.setup(10,gpio.OUT)		# setup particular pin for PWM
 p=gpio.PWM(10,50)		
-p.start(7.5)            # set the duty cycle to 50% 
+p.start(7.5)            	# set the duty cycle to 50% 
 q=gpio.PWM(12,50)		
-q.start(5)            # set the duty cycle to 50%
+q.start(5)           		# set the duty cycle to 50%
 camera = PiCamera()
 
 def getch():
