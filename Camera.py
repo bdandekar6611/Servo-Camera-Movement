@@ -211,8 +211,8 @@ def upperServoRight():
     pwmUpperStart(2.5)
     print("upperServoRight")
 
-bol=True;      #if condition is true proceed
-try:		   # To handle the exceptions
+bol=True;      			#if condition is true proceed
+try:		   		# To handle the exceptions
 ##    stop()
     while bol:
         direct=getch()		#getting the commands from the ASCI keyboard
