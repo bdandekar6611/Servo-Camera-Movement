@@ -214,9 +214,9 @@ bol=True;      #if condition is true proceed
 try:		   # To handle the exceptions
 ##    stop()
     while bol:
-        direct=getch()		#getting the commands from the ASCI keyboard
+        direct=getch()			#getting the commands from the ASCI keyboard
 
-        if direct=='w':		#getting the forward commands from the ASCI keyboard word 'w'
+        if direct=='w':			#getting the forward commands from the ASCI keyboard word 'w'
             forward()
         elif direct=='s':	#getting the backward commands from the ASCI keyboard word 's'
             backward()
