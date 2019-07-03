@@ -17,9 +17,9 @@ gpio.setwarnings(False) # Clear gpio pins
 gpio.setup(12,gpio.OUT)	 # setup particular pin for PWM
 gpio.setup(10,gpio.OUT)	# setup particular pin for PWM
 p=gpio.PWM(10,50)	# set the duty cycle to 50% (Pan)
-p.start(12.5)            # intially set the servo angle at the middle by 90 degree 
+p.start(12.5)            # intially set the servo angle at the middle by 175 degree 
 q=gpio.PWM(12,50)	# set the duty cycle to 50% (tilt)	
-q.start(12.5)            # intially set the servo angle at the middle by 90 degree
+q.start(12.5)            # intially set the servo angle at the middle by 175 degree
 
 def getch():
     fd = sys.stdin.fileno()
