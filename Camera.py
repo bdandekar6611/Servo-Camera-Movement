@@ -239,6 +239,7 @@ try:		   		# To handle the exceptions
             lowerServoRight()
         elif direct=='c':	#getting the capture mode commands from the ASCI keyboard word 'c'
             camera.capture('/home/pi/Desktop/group1.jpg')
+	    camera.stop_preview()
         elif direct=='b':	#getting the reset commands from the ASCI keyboard word 'b' 
             gpio.cleanup()
             bol=False
