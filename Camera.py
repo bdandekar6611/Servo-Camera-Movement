@@ -19,7 +19,7 @@ gpio.setup(10,gpio.OUT)		# setup particular pin for PWM
 p=gpio.PWM(10,50)		# set the duty cycle to 50% 
 p.start(7.5)            	
 q=gpio.PWM(12,50)		# set the duty cycle to 50%
-q.start(5)           		
+q.start(7.5)           		
 camera = PiCamera()
 
 def getch():
