@@ -186,7 +186,7 @@ def lowerServoRight():
 
 # FUNCTION      :	upperServoMiddle
 # DESCRIPTION   :	The upper middle servo motor work begins
-# PARAMETERS    :	Integer type value that provide servo some moment to particular angle
+# PARAMETERS    :	Integer type value that provide servo some moment to a particular angle
 # RETURNS       :	Nothing	
 	
 def upperServoMiddle():
@@ -195,7 +195,7 @@ def upperServoMiddle():
 
 # FUNCTION      :	upperServoLeft
 # DESCRIPTION   :	The upper left servo motor work begins
-# PARAMETERS    :	Integer type value that provide servo some moment to particular angle
+# PARAMETERS    :	Integer type value that provide servo some moment to a particular angle
 # RETURNS       :	Nothing	
 	
 def upperServoLeft():
@@ -204,7 +204,7 @@ def upperServoLeft():
 
 # FUNCTION      :	upperServoRight
 # DESCRIPTION   :	The upper right servo motor work begins
-# PARAMETERS    :	Integer type value that provide servo some moment to particular angle
+# PARAMETERS    :	Integer type value that provide servo some moment to a particular angle
 # RETURNS       :	Nothing	
 	
 def upperServoRight():
