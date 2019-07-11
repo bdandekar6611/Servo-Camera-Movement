@@ -1,7 +1,7 @@
   # File Name          : servoCamera.py
   # Description        : Movement of the camera on the servo-mount and video streaming  
   # Author:            : Group F
-  # Date:              : 2019-05-28				 
+   Date:              : 2019-05-28				 
 
 #Import libraries 
   
