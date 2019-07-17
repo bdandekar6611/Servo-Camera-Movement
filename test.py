@@ -3,7 +3,7 @@
   # Author:            : Group F
   # Date:              : 2019-05-28				 
 
-#Import libraries 
+# 
   
 import RPi.GPIO as gpio
 import time
